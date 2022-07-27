@@ -23,6 +23,7 @@ public class EmployeeDAO {
 			String fname = rs.getString("First_name");
 			String lname = rs.getString("Last_name");
 			String email = rs.getString("Email");
+			//phone number 
 			Date date = rs.getDate("YY/MM/DD");
 			int sal = rs.getInt("Salary");
 			double pct = rs.getDouble("Commission_pct");
