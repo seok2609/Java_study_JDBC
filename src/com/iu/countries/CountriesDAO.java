@@ -60,6 +60,7 @@ public class CountriesDAO {
 			countriesDTO.setCountry_id(rs.getString("country_id"));
 			countriesDTO.setCountry_name( rs.getString("country_name"));
 			countriesDTO.setRegion_id(rs.getInt("region_id"));
+			ar.add(countriesDTO);
 			
 			
 		}

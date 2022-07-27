@@ -21,7 +21,7 @@ public class TestMain {
 		try {
 			ArrayList<RegionsDTO> ar = new ArrayList();
 			regionsView.view(ar);
-//			regionsView.view(regionsDTO);
+			regionsView.view(regionsDTO);
 //			DBConnector.getConnection();
 //			regionsDAO.getList();
 //			regionsDAO.getDetail(2);
