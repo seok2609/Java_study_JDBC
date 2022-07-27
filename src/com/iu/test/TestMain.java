@@ -3,6 +3,7 @@ package com.iu.test;
 import java.util.ArrayList;
 
 import com.iu.countries.CountriesDAO;
+import com.iu.emp.EmployeeDAO;
 import com.iu.regions.RegionsDAO;
 import com.iu.regions.RegionsDTO;
 import com.iu.regions.RegionsView;
@@ -16,11 +17,12 @@ public class TestMain {
 		CountriesDAO countriesDAO = new CountriesDAO();
 		RegionsView regionsView = new RegionsView();
 		RegionsDTO regionsDTO = new RegionsDTO();
-		
+		EmployeeDAO employeeDAO = new EmployeeDAO();
 		
 		try {
 			ArrayList<RegionsDTO> ar = new ArrayList();
-			regionsView.view(ar);
+			employeeDAO.getList();
+//			regionsView.view(ar);
 //			regionsView.view(regionsDTO);
 //			DBConnector.getConnection();
 //			regionsDAO.getList();
