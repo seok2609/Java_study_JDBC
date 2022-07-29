@@ -80,12 +80,9 @@ public class EmployeeDAO {
 		
 		return employeeDTO;
 		
-		
 	}
 
-import com.iu.util.DBConnector;
 
-public class EmployeeDAO {
 	public void getList() throws Exception{
 		//1. DB 연결
 		Connection con = DBConnector.getConnection();
@@ -134,5 +131,4 @@ public class EmployeeDAO {
 	
 	
 
-}
 }
