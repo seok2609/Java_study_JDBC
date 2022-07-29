@@ -83,6 +83,9 @@ public class EmployeeDAO {
 		
 	}
 
+import com.iu.util.DBConnector;
+
+public class EmployeeDAO {
 	public void getList() throws Exception{
 		//1. DB 연결
 		Connection con = DBConnector.getConnection();
@@ -96,6 +99,8 @@ public class EmployeeDAO {
 		while(rs.next()) {
 			
 
+		
+		while(rs.next()) {
 			int eid = rs.getInt("Employee_id");
 			String fname = rs.getString("First_name");
 			String lname = rs.getString("Last_name");
@@ -107,6 +112,7 @@ public class EmployeeDAO {
 			int mid = rs.getInt("Manager_id");
 			int did = rs.getInt("Department_id");
 
+			
 			System.out.println(eid);
 			System.out.println(fname);
 			System.out.println(lname);
@@ -121,8 +127,12 @@ public class EmployeeDAO {
 
 		DBConnector.disConnect(rs, st, con);
 
+		}
+		DBConnector.disConnect(rs, st, con);
+		
 	}
 	
 	
 
+}
 }
