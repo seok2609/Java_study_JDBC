@@ -7,15 +7,42 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.naming.spi.DirStateFactory.Result;
 
 import com.iu.util.DBConnector;
 
-import oracle.jdbc.proxy.annotation.Pre;
 
  
 
 public class EmployeeDAO {
+	
+	public void get(EmployeeDTO employeeDTO) throws Exception {
+		//1. DB 연결
+		Connection con = DBConnector.getConnection();
+		//2. Query 작성
+		String sql = "SELECT E.LAST_NAME,E.SALARY, D.DEPARTMENT_NAME "
+				+ "FROM EMPLOYEES E "
+				+ "    INNER JOIN "
+				+ "    DEPARTMENTS D "
+				+ "    ON E.DEPARTMENT_ID = D.DEPARTMENT_ID "
+				+ "WHERE E.EMPLOYEE_ID=?";
+		//3. Query 전송
+		PreparedStatement st = con.prepareStatement(sql);
+		//4. ? 가 있으면 값 세팅
+		st.setInt(1, employeeDTO.getEmployee_id());
+		//5. 최종 전송 후 결과처리
+		ResultSet rs = st.executeQuery();
+			
+		if(rs.next()) {
+			employeeDTO = new EmployeeDTO();
+			employeeDTO.setLast_Name(rs.getString("LAST_NAME"));
+			employeeDTO.setSalary(rs.getInt("SALARY"));
+			
+		}
+		//6. 자원해제
+		DBConnector.disConnect(rs, st, con);
+		
+		
+	}
 	
 	public void getSalaryInfo() throws Exception {
 		//1. DB 연결
